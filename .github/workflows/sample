@@ -1,0 +1,23 @@
+name: This is a sample workflow that will run on push to main branch
+on:
+  push:
+    branches: 
+      - main
+
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Hello world
+       run: echo "Hello World how is it"
+       shell: bash
+       
+  npm:
+   runs-on: ubuntu-latest
+   steps:
+    - uses: actions/setup-node@v3
+      with:
+          node-version: '16'
+    - run: npm install -g bats
+    - run: bats -v
