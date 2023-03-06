@@ -9,9 +9,8 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-     - name: Hello world
-       run: echo "Hello World how is it"
-       shell: bash
+       - run: echo "Hello World how is it"
+         shell: bash
        
   npm:
    runs-on: ubuntu-latest
