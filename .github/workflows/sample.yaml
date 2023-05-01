@@ -1,22 +1,20 @@
-name: This is a sample workflow that will run on push to main branch
-on:
-  push:
-    branches: 
-      - main
+name: Build and Test
 
+on: push
 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
+    
     steps:
-       - run: echo "Hello World how is it"
-         shell: bash
-       
-  npm:
-   runs-on: ubuntu-latest
-   steps:
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
       with:
-          node-version: '16'
-    - run: npm install -g bats
-    - run: bats -v
+        node-version: '14.x'
+    - name: Install dependencies
+      run: npm install
+    - name: Build and Test
+      run: |
+        npm run build
+        npm test
