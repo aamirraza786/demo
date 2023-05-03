@@ -9,7 +9,7 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-       - run: echo ${{github.event.after}} | jq
+       - run: echo ${{github.event.after}} 
          shell: bash
        
   npm:
