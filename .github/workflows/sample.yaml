@@ -9,7 +9,7 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-       - run: echo "Hello World how is it"
+       - run: echo $GITHUB_WORKFLOW
          shell: bash
        
   npm:
